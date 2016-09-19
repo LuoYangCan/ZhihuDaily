@@ -72,11 +72,18 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     News_cell *cell = [tableView dequeueReusableCellWithIdentifier:@"news" forIndexPath:indexPath];
     NewsItem *Item = self.newsDetail[indexPath.row];
-//    NSLog(@"Item%@",Item);
-//    NSString *imageString = Item.newsimage;
-//    NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:imageString]];
-//    UIImage *image1 = [UIImage imageWithData:imageData];
-//    cell.image.image = image1;
+    NSString *imageString = [NSString stringWithFormat:@"%@",Item.newsimage];
+    imageString = [imageString stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    imageString = [imageString stringByReplacingOccurrencesOfString:@" " withString:@""];
+    imageString = [imageString stringByReplacingOccurrencesOfString:@"(" withString:@""];
+    imageString = [imageString stringByReplacingOccurrencesOfString:@")" withString:@""];
+    imageString = [imageString stringByReplacingOccurrencesOfString:@"\"" withString:@""];
+    NSLog(@"%@",imageString);
+//    NSString *imageString = @"http://pic4.zhimg.com/a7a3c439e71d9fcb88d9d52a98c5ff2b.jpg";
+    NSURL *imageURL = [NSURL URLWithString:imageString];
+    NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
+    UIImage *image1 = [UIImage imageWithData:imageData];
+    cell.image.image = image1;
     cell.abstract.text = Item.newstitle;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
@@ -158,4 +165,5 @@
     }];
 
 }
+
 @end
