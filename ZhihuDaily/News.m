@@ -78,19 +78,29 @@
     imageString = [imageString stringByReplacingOccurrencesOfString:@"(" withString:@""];
     imageString = [imageString stringByReplacingOccurrencesOfString:@")" withString:@""];
     imageString = [imageString stringByReplacingOccurrencesOfString:@"\"" withString:@""];
-    NSLog(@"%@",imageString);
-//    NSString *imageString = @"http://pic4.zhimg.com/a7a3c439e71d9fcb88d9d52a98c5ff2b.jpg";
+   //    NSString *imageString = @"http://pic4.zhimg.com/a7a3c439e71d9fcb88d9d52a98c5ff2b.jpg";
     NSURL *imageURL = [NSURL URLWithString:imageString];
     NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
     UIImage *image1 = [UIImage imageWithData:imageData];
     cell.image.image = image1;
+    cell.abstract.numberOfLines = 0;
     cell.abstract.text = Item.newstitle;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     return cell;
 }
 
-
+#pragma mark - prepareforsegue
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"showDetail"]) {
+        NewsDetail *detail = segue.destinationViewController;
+        NSInteger selectindex = [[self.tableView indexPathForSelectedRow]row];
+        NewsItem *Item = [self.newsDetail objectAtIndex:selectindex];
+        detail.newsid = Item.newsid;
+        detail.newstitle = Item.newstitle;
+        
+    }
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -134,36 +144,6 @@
     // Pass the selected object to the new view controller.
 }
 */
-#pragma mark-
-- (void)NetworkData{
-    
-//    NSString *encodeparameters = [parameters stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
-    NSString *URLtext = [NSString stringWithFormat:@"api/4/news/latest"];
-    [[NetworkHelper ShareHttpManager]GET:URLtext parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        if (responseObject != nil) {
-            NSDictionary *dict  = responseObject;
-            NSArray *result = dict[@"stories"];
-            NSString *date = dict[@"date"];
-            NSLog(@"date%@",date);
-            [self.newsDetail setValue:date forKey:@"date"];
-            [result enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                NSDictionary *results = obj;
-                NSString     *imageurl = results[@"images"];
-                NSString     *newsid =  results[@"id"];
-                NSString     *title = results[@"title"];
-                title = [title description];
-                [self.newsDetail setValue:imageurl forKey:@"images"];
-                [self.newsDetail setValue:newsid forKey:@"id"];
-                [self.newsDetail setValue:title forKey:@"title"];
-                NSLog(@"%@",obj);
-//                NSLog(@"图片%@ ",[title description]);
-            }];
-           
-        }
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"failure");
-    }];
 
-}
 
 @end

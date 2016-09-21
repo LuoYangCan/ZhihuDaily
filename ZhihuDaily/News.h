@@ -10,6 +10,6 @@
 #import "NetworkHelper.h"
 #import "News cell.h"
 #import "NewsItem.h"
+#import "NewsDetail.h"
 @interface News : UITableViewController
-
 @end
