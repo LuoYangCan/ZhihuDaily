@@ -26,11 +26,11 @@
 //            NSMutableArray *result = responseObject;
             [self.newsDetail removeAllObjects];
             [result enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                NSDictionary *results = obj;
+                NSDictionary *results  = obj;
                 NSString     *imageurl = results[@"images"];
-                NSString     *newsid =  results[@"id"];
-                NSString     *title = results[@"title"];
-                NewsItem *Item = [[NewsItem alloc]init];
+                NSString     *newsid   = results[@"id"];
+                NSString     *title    = results[@"title"];
+                NewsItem *Item  = [[NewsItem alloc]init];
                 Item.newsimage  = imageurl;
                 Item.newsid     = newsid;
                 Item.newstitle  = title;
@@ -73,16 +73,12 @@
     News_cell *cell = [tableView dequeueReusableCellWithIdentifier:@"news" forIndexPath:indexPath];
     NewsItem *Item = self.newsDetail[indexPath.row];
     NSString *imageString = [NSString stringWithFormat:@"%@",Item.newsimage];
-    imageString = [imageString stringByReplacingOccurrencesOfString:@"\n" withString:@""];
-    imageString = [imageString stringByReplacingOccurrencesOfString:@" " withString:@""];
-    imageString = [imageString stringByReplacingOccurrencesOfString:@"(" withString:@""];
-    imageString = [imageString stringByReplacingOccurrencesOfString:@")" withString:@""];
-    imageString = [imageString stringByReplacingOccurrencesOfString:@"\"" withString:@""];
-   //    NSString *imageString = @"http://pic4.zhimg.com/a7a3c439e71d9fcb88d9d52a98c5ff2b.jpg";
-    NSURL *imageURL = [NSURL URLWithString:imageString];
-    NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
-    UIImage *image1 = [UIImage imageWithData:imageData];
-    cell.image.image = image1;
+//    //异步调用
+//    NSOperationQueue *opreationQueue = [[NSOperationQueue alloc]init];
+//    NSInvocationOperation *op = [[NSInvocationOperation alloc]initWithTarget:self selector:@selector(downloadImage:) object:nil];
+//    [opreationQueue addOperation:op];
+    UIImage *image = [self downloadImage:imageString];
+    cell.image.image = image;
     cell.abstract.numberOfLines = 0;
     cell.abstract.text = Item.newstitle;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -100,6 +96,19 @@
         detail.newstitle = Item.newstitle;
         
     }
+}
+#pragma mark - download image
+- (UIImage *)downloadImage:(NSString *)imageString{
+    imageString = [imageString stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    imageString = [imageString stringByReplacingOccurrencesOfString:@" " withString:@""];
+    imageString = [imageString stringByReplacingOccurrencesOfString:@"(" withString:@""];
+    imageString = [imageString stringByReplacingOccurrencesOfString:@")" withString:@""];
+    imageString = [imageString stringByReplacingOccurrencesOfString:@"\"" withString:@""];
+    NSURL *imageURL = [NSURL URLWithString:imageString];
+    NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
+    UIImage *image1 = [UIImage imageWithData:imageData];
+    
+    return image1;
 }
 /*
 // Override to support conditional editing of the table view.

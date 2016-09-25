@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Hdd-zg-54J">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Hdd-zg-54J">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -50,7 +50,7 @@
                                 <connections>
                                     <outlet property="abstract" destination="G8z-U1-m7H" id="ovk-v1-pg2"/>
                                     <outlet property="image" destination="icV-Hq-Sky" id="ERm-Bc-xoq"/>
-                                    <segue destination="pSt-O4-PUh" kind="show" identifier="showDetail" id="oGf-ch-iHD"/>
+                                    <segue destination="wwd-Zk-OaA" kind="show" identifier="showDetail" id="ezN-Qp-zT3"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -104,7 +104,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="20" y="64" width="335" height="603"/>
+                                    <rect key="frame" x="7" y="64" width="362" height="603"/>
                                 </variation>
                             </textView>
                         </subviews>
@@ -117,7 +117,47 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uYw-Kf-s2t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1602.75" y="279.5"/>
+            <point key="canvasLocation" x="1602.75" y="756.5"/>
+        </scene>
+        <!--News Detail Web-->
+        <scene sceneID="fqv-fu-tAg">
+            <objects>
+                <viewController id="wwd-Zk-OaA" customClass="NewsDetailWeb" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jFc-lv-3j9"/>
+                        <viewControllerLayoutGuide type="bottom" id="7a4-lO-Kcf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mdy-yN-1El">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B3w-y2-3JQ">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                </variation>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="B3w-y2-3JQ"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="B3w-y2-3JQ"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="DetailWeb" destination="B3w-y2-3JQ" id="4T1-Bw-bnO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gah-fa-YuX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1620.75" y="-211.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="tY9-lG-zWS">

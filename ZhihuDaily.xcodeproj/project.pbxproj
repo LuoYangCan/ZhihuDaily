@@ -24,6 +24,7 @@
 		6802A28A1D88F3D300703190 /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 6802A27A1D88F3D300703190 /* UIRefreshControl+AFNetworking.m */; };
 		6802A28B1D88F3D300703190 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 6802A27C1D88F3D300703190 /* UIWebView+AFNetworking.m */; };
 		68096E0F1D8FD7D8005B9320 /* NewsItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 68096E0E1D8FD7D8005B9320 /* NewsItem.m */; };
+		682581CA1D9671540017EF5E /* NewsDetailWeb.m in Sources */ = {isa = PBXBuildFile; fileRef = 682581C91D9671540017EF5E /* NewsDetailWeb.m */; };
 		682E495B1D92A61A00AD8CBC /* NewsDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 682E495A1D92A61A00AD8CBC /* NewsDetail.m */; };
 		68C892E71D8789AB00183A00 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 68C892E61D8789AB00183A00 /* main.m */; };
 		68C892EA1D8789AB00183A00 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 68C892E91D8789AB00183A00 /* AppDelegate.m */; };
@@ -72,6 +73,8 @@
 		6802A27C1D88F3D300703190 /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
 		68096E0D1D8FD7D8005B9320 /* NewsItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsItem.h; sourceTree = "<group>"; };
 		68096E0E1D8FD7D8005B9320 /* NewsItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsItem.m; sourceTree = "<group>"; };
+		682581C81D9671540017EF5E /* NewsDetailWeb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsDetailWeb.h; sourceTree = "<group>"; };
+		682581C91D9671540017EF5E /* NewsDetailWeb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsDetailWeb.m; sourceTree = "<group>"; };
 		682E49591D92A61900AD8CBC /* NewsDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsDetail.h; sourceTree = "<group>"; };
 		682E495A1D92A61A00AD8CBC /* NewsDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsDetail.m; sourceTree = "<group>"; };
 		68C892E21D8789AB00183A00 /* ZhihuDaily.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZhihuDaily.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -210,6 +213,8 @@
 				682E495A1D92A61A00AD8CBC /* NewsDetail.m */,
 				68CB60D11D8790A500EBB235 /* News cell.h */,
 				68CB60D21D8790A500EBB235 /* News cell.m */,
+				682581C81D9671540017EF5E /* NewsDetailWeb.h */,
+				682581C91D9671540017EF5E /* NewsDetailWeb.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -291,6 +296,7 @@
 				6802A2891D88F3D300703190 /* UIProgressView+AFNetworking.m in Sources */,
 				6802A2841D88F3D300703190 /* AFImageDownloader.m in Sources */,
 				6802A2831D88F3D300703190 /* AFAutoPurgingImageCache.m in Sources */,
+				682581CA1D9671540017EF5E /* NewsDetailWeb.m in Sources */,
 				682E495B1D92A61A00AD8CBC /* NewsDetail.m in Sources */,
 				68C892E71D8789AB00183A00 /* main.m in Sources */,
 				6802A2871D88F3D300703190 /* UIButton+AFNetworking.m in Sources */,
