@@ -25,10 +25,10 @@
         if (!(responseObject == nil)) {
             NSDictionary *dict = responseObject;
             NSString  *message1 = dict[@"body"];
-            NSString  *message = [NSString stringWithFormat:@"<head></head>%@",message1];
-            [self.DetailWeb loadHTMLString:message baseURL:[NSURL fileURLWithPath: [[NSBundle mainBundle]  bundlePath]]];//从HTML URL中uploadweb
-            _DetailWeb.scalesPageToFit = YES;//让图片自适应
-            
+            NSArray *css1 = dict[@"css"];
+            NSString *css = css1[0];
+            NSString  *message = [NSString stringWithFormat:@"<html><head><link rel=\"stylesheet\" href=%@></head><body>%@</body></html>",css,message1];
+            [self.DetailWeb loadHTMLString:message baseURL:nil];//从HTML URL中uploadweb
             //            NSString *encodemessage = [message cStringUsingEncoding:NSUnicodeStringEncoding];
 //            NSData *data             = [message dataUsingEncoding:NSUnicodeStringEncoding];
 //            NSDictionary *options    = @{NSDocumentTypeDocumentAttribute:NSHTMLTextDocumentType};
@@ -47,8 +47,10 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+    
     // Dispose of any resources that can be recreated.
 }
+
 //#pragma mark - webviewdelegate
 //- (void)webViewDidFinishLoad:(UIWebView *)webView
 //{

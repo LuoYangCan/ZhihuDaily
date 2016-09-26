@@ -11,6 +11,7 @@
 @interface News ()
 @property (weak, nonatomic) IBOutlet UIImageView *topimage;
 @property(strong,nonatomic) NSMutableArray *newsDetail;
+
 @end
 
 @implementation News
