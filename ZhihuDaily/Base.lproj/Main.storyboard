@@ -14,6 +14,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <imageView key="tableHeaderView" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="eFq-Nc-zdJ">
+                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="news" rowHeight="111" id="fad-4Y-iGK" customClass="News_cell">
                                 <rect key="frame" x="0.0" y="92" width="375" height="111"/>
@@ -61,10 +65,13 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="知乎日报" id="Fht-Xz-Mi2"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="topimage" destination="eFq-Nc-zdJ" id="lXf-Bt-VSW"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NVG-qe-rsL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="928.5" y="279.5"/>
+            <point key="canvasLocation" x="927.75" y="279.5"/>
         </scene>
         <!--News Detail-->
         <scene sceneID="p9q-9K-CgE">
@@ -128,6 +135,7 @@
                         <viewControllerLayoutGuide type="bottom" id="7a4-lO-Kcf"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="mdy-yN-1El">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B3w-y2-3JQ">

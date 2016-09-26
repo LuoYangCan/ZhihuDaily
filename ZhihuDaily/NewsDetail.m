@@ -8,7 +8,7 @@
 
 #import "NewsDetail.h"
 #import "AFNetworking.h"
-@interface NewsDetail ()
+@interface NewsDetail ()<UIWebViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *DetailText;
 
 @end
@@ -46,6 +46,23 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+#pragma mark - webviewdelegate
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    [webView stringByEvaluatingJavaScriptFromString:
+     @"var script = document.createElement('script');"
+     "script.type = 'text/javascript';"
+     "script.text = \"function ResizeImages() { "
+     "var myimg,oldwidth,oldheight;"
+    "var maxwidth=320;"// 图片宽度
+     "for(i=0;i<maxwidth;i++){""myimg.width = maxwidth;"
+     "}"
+     "}"
+     "}\";"
+     "document.getElementsByTagName('head')[0].appendChild(script);"];
+    [webView stringByEvaluatingJavaScriptFromString:@"ResizeImages();"];
+}
 /*
 #pragma mark - Navigation
 

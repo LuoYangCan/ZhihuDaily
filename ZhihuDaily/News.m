@@ -9,6 +9,7 @@
 #import "News.h"
 
 @interface News ()
+@property (weak, nonatomic) IBOutlet UIImageView *topimage;
 @property(strong,nonatomic) NSMutableArray *newsDetail;
 @end
 
@@ -38,6 +39,11 @@
 //                [self.newsDetail setValue:newsid   forKey:@"id"];
 //                [self.newsDetail setValue:title    forKey:@"title"];
                 [self.newsDetail addObject:Item];
+                //异步调用
+                NSOperationQueue *opreationQueue = [[NSOperationQueue alloc]init];
+                NSInvocationOperation *op = [[NSInvocationOperation alloc]initWithTarget:self selector:@selector(downloadTopImage) object:nil];
+                [opreationQueue addOperation:op];
+
             }];
                 [self.tableView reloadData];
         }
@@ -73,10 +79,6 @@
     News_cell *cell = [tableView dequeueReusableCellWithIdentifier:@"news" forIndexPath:indexPath];
     NewsItem *Item = self.newsDetail[indexPath.row];
     NSString *imageString = [NSString stringWithFormat:@"%@",Item.newsimage];
-//    //异步调用
-//    NSOperationQueue *opreationQueue = [[NSOperationQueue alloc]init];
-//    NSInvocationOperation *op = [[NSInvocationOperation alloc]initWithTarget:self selector:@selector(downloadImage:) object:nil];
-//    [opreationQueue addOperation:op];
     UIImage *image = [self downloadImage:imageString];
     cell.image.image = image;
     cell.abstract.numberOfLines = 0;
@@ -154,5 +156,18 @@
 }
 */
 
+#pragma mark- download
+- (void)downloadTopImage{
+    NewsItem *Item = [self.newsDetail objectAtIndex:0];
+    NSString *topimageurl = [NSString stringWithFormat:@"%@",Item.newsimage];
+    topimageurl = [topimageurl stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    topimageurl = [topimageurl stringByReplacingOccurrencesOfString:@" " withString:@""];
+    topimageurl = [topimageurl stringByReplacingOccurrencesOfString:@"(" withString:@""];
+    topimageurl = [topimageurl stringByReplacingOccurrencesOfString:@")" withString:@""];
+    topimageurl = [topimageurl stringByReplacingOccurrencesOfString:@"\"" withString:@""];
+    NSURL *url = [NSURL URLWithString:topimageurl];
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    self.topimage.image = [UIImage imageWithData:data];
 
+}
 @end

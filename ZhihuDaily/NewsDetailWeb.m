@@ -8,7 +8,7 @@
 
 #import "NewsDetailWeb.h"
 
-@interface NewsDetailWeb ()
+@interface NewsDetailWeb ()<UIWebViewDelegate>
 @property (weak, nonatomic) IBOutlet UIWebView *DetailWeb;
 
 @end
@@ -24,8 +24,11 @@
     [[NetworkHelper ShareHttpManager]GET:encodeURl parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (!(responseObject == nil)) {
             NSDictionary *dict = responseObject;
-            NSString  *message = dict[@"body"];
-            [self.DetailWeb loadHTMLString:message baseURL:[NSURL fileURLWithPath: [[NSBundle mainBundle]  bundlePath]]];
+            NSString  *message1 = dict[@"body"];
+            NSString  *message = [NSString stringWithFormat:@"<head></head>%@",message1];
+            [self.DetailWeb loadHTMLString:message baseURL:[NSURL fileURLWithPath: [[NSBundle mainBundle]  bundlePath]]];//从HTML URL中uploadweb
+            _DetailWeb.scalesPageToFit = YES;//让图片自适应
+            
             //            NSString *encodemessage = [message cStringUsingEncoding:NSUnicodeStringEncoding];
 //            NSData *data             = [message dataUsingEncoding:NSUnicodeStringEncoding];
 //            NSDictionary *options    = @{NSDocumentTypeDocumentAttribute:NSHTMLTextDocumentType};
@@ -46,7 +49,22 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+//#pragma mark - webviewdelegate
+//- (void)webViewDidFinishLoad:(UIWebView *)webView
+//{
+//    [webView stringByEvaluatingJavaScriptFromString:
+//     @"var script = document.createElement('script');"
+//     "script.type = 'text/javascript';"
+//     "script.text = \"function ResizeImages() { "
+//     "var myimg,oldwidth,oldheight;"
+//     "var maxwidth=320;"// 图片宽度
+//     "for(i=0;i<maxwidth;i++){""myimg.width = maxwidth;"
+//     "}"
+//     "}"
+//     "}\";"
+//     "document.getElementsByTagName('head')[0].appendChild(script);"];
+//    [webView stringByEvaluatingJavaScriptFromString:@"ResizeImages();"];
+//}
 /*
 #pragma mark - Navigation
 
