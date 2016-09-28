@@ -73,59 +73,6 @@
             </objects>
             <point key="canvasLocation" x="927.5" y="279.5"/>
         </scene>
-        <!--News Detail-->
-        <scene sceneID="p9q-9K-CgE">
-            <objects>
-                <viewController id="pSt-O4-PUh" customClass="NewsDetail" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="2cc-2f-pRs"/>
-                        <viewControllerLayoutGuide type="bottom" id="485-Ug-y1M"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="7Du-EH-QLv">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j6K-2A-uwr">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                            </navigationBar>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="FTi-QH-iHU">
-                                <rect key="frame" x="0.0" y="64" width="375" height="509"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">                                                                                       
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-加载中……</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="7" y="64" width="362" height="603"/>
-                                </variation>
-                            </textView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                    <connections>
-                        <outlet property="DetailText" destination="FTi-QH-iHU" id="bF8-r1-y2X"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uYw-Kf-s2t" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1602.75" y="756.5"/>
-        </scene>
         <!--News Detail Web-->
         <scene sceneID="fqv-fu-tAg">
             <objects>

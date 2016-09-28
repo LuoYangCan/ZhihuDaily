@@ -25,7 +25,6 @@
 		6802A28B1D88F3D300703190 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 6802A27C1D88F3D300703190 /* UIWebView+AFNetworking.m */; };
 		68096E0F1D8FD7D8005B9320 /* NewsItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 68096E0E1D8FD7D8005B9320 /* NewsItem.m */; };
 		682581CA1D9671540017EF5E /* NewsDetailWeb.m in Sources */ = {isa = PBXBuildFile; fileRef = 682581C91D9671540017EF5E /* NewsDetailWeb.m */; };
-		682E495B1D92A61A00AD8CBC /* NewsDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 682E495A1D92A61A00AD8CBC /* NewsDetail.m */; };
 		68C892E71D8789AB00183A00 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 68C892E61D8789AB00183A00 /* main.m */; };
 		68C892EA1D8789AB00183A00 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 68C892E91D8789AB00183A00 /* AppDelegate.m */; };
 		68C892F01D8789AB00183A00 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68C892EE1D8789AB00183A00 /* Main.storyboard */; };
@@ -33,6 +32,7 @@
 		68C892F51D8789AB00183A00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68C892F31D8789AB00183A00 /* LaunchScreen.storyboard */; };
 		68CB60CE1D878C1600EBB235 /* News.m in Sources */ = {isa = PBXBuildFile; fileRef = 68CB60CD1D878C1600EBB235 /* News.m */; };
 		68CB60D31D8790A500EBB235 /* News cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68CB60D21D8790A500EBB235 /* News cell.m */; };
+		68E0FCCE1D9BE25400181236 /* v2-8960c75578eb9b5a82f3ad27e275e4a1.png in Resources */ = {isa = PBXBuildFile; fileRef = 68E0FCCD1D9BE25400181236 /* v2-8960c75578eb9b5a82f3ad27e275e4a1.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,8 +75,6 @@
 		68096E0E1D8FD7D8005B9320 /* NewsItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsItem.m; sourceTree = "<group>"; };
 		682581C81D9671540017EF5E /* NewsDetailWeb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsDetailWeb.h; sourceTree = "<group>"; };
 		682581C91D9671540017EF5E /* NewsDetailWeb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsDetailWeb.m; sourceTree = "<group>"; };
-		682E49591D92A61900AD8CBC /* NewsDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsDetail.h; sourceTree = "<group>"; };
-		682E495A1D92A61A00AD8CBC /* NewsDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsDetail.m; sourceTree = "<group>"; };
 		68C892E21D8789AB00183A00 /* ZhihuDaily.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZhihuDaily.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68C892E61D8789AB00183A00 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		68C892E81D8789AB00183A00 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -89,6 +87,7 @@
 		68CB60CD1D878C1600EBB235 /* News.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = News.m; sourceTree = "<group>"; };
 		68CB60D11D8790A500EBB235 /* News cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "News cell.h"; sourceTree = "<group>"; };
 		68CB60D21D8790A500EBB235 /* News cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "News cell.m"; sourceTree = "<group>"; };
+		68E0FCCD1D9BE25400181236 /* v2-8960c75578eb9b5a82f3ad27e275e4a1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "v2-8960c75578eb9b5a82f3ad27e275e4a1.png"; path = "../../../Desktop/v2-8960c75578eb9b5a82f3ad27e275e4a1.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +190,7 @@
 		68C892E51D8789AB00183A00 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				68E0FCCD1D9BE25400181236 /* v2-8960c75578eb9b5a82f3ad27e275e4a1.png */,
 				68C892EE1D8789AB00183A00 /* Main.storyboard */,
 				68C892F31D8789AB00183A00 /* LaunchScreen.storyboard */,
 				68C892F61D8789AB00183A00 /* Info.plist */,
@@ -209,8 +209,6 @@
 			children = (
 				68CB60CC1D878C1600EBB235 /* News.h */,
 				68CB60CD1D878C1600EBB235 /* News.m */,
-				682E49591D92A61900AD8CBC /* NewsDetail.h */,
-				682E495A1D92A61A00AD8CBC /* NewsDetail.m */,
 				68CB60D11D8790A500EBB235 /* News cell.h */,
 				68CB60D21D8790A500EBB235 /* News cell.m */,
 				682581C81D9671540017EF5E /* NewsDetailWeb.h */,
@@ -276,6 +274,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68E0FCCE1D9BE25400181236 /* v2-8960c75578eb9b5a82f3ad27e275e4a1.png in Resources */,
 				68C892F51D8789AB00183A00 /* LaunchScreen.storyboard in Resources */,
 				68C892F21D8789AB00183A00 /* Assets.xcassets in Resources */,
 				68C892F01D8789AB00183A00 /* Main.storyboard in Resources */,
@@ -297,7 +296,6 @@
 				6802A2841D88F3D300703190 /* AFImageDownloader.m in Sources */,
 				6802A2831D88F3D300703190 /* AFAutoPurgingImageCache.m in Sources */,
 				682581CA1D9671540017EF5E /* NewsDetailWeb.m in Sources */,
-				682E495B1D92A61A00AD8CBC /* NewsDetail.m in Sources */,
 				68C892E71D8789AB00183A00 /* main.m in Sources */,
 				6802A2871D88F3D300703190 /* UIButton+AFNetworking.m in Sources */,
 				6802A2861D88F3D300703190 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
