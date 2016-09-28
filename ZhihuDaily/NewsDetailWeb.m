@@ -10,6 +10,7 @@
 
 @interface NewsDetailWeb ()<UIWebViewDelegate>
 @property (weak, nonatomic) IBOutlet UIWebView *DetailWeb;
+@property (weak, nonatomic) IBOutlet UIImageView *topimage;
 
 @end
 
@@ -28,7 +29,13 @@
             NSArray *css1 = dict[@"css"];
             NSString *css = css1[0];
             NSString  *message = [NSString stringWithFormat:@"<html><head><link rel=\"stylesheet\" href=%@></head><body>%@</body></html>",css,message1];
-            [self.DetailWeb loadHTMLString:message baseURL:nil];//从HTML URL中uploadweb
+            [self.DetailWeb loadHTMLString:message baseURL:nil];
+            NSString *imageurlstring = responseObject[@"image"];
+            NSURL *imagrurl = [NSURL URLWithString:imageurlstring];
+            NSData *data = [NSData dataWithContentsOfURL:imagrurl];
+            _topimage.image = [UIImage imageWithData:data];
+            
+            //从HTML URL中uploadweb
             //            NSString *encodemessage = [message cStringUsingEncoding:NSUnicodeStringEncoding];
 //            NSData *data             = [message dataUsingEncoding:NSUnicodeStringEncoding];
 //            NSDictionary *options    = @{NSDocumentTypeDocumentAttribute:NSHTMLTextDocumentType};

@@ -10,20 +10,20 @@
         <scene sceneID="OgR-y1-8gG">
             <objects>
                 <tableViewController id="KM0-e9-8vb" customClass="News" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="111" sectionHeaderHeight="28" sectionFooterHeight="28" id="Gby-h9-c8t">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="106" sectionHeaderHeight="28" sectionFooterHeight="28" id="Gby-h9-c8t">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <imageView key="tableHeaderView" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="eFq-Nc-zdJ">
-                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                        <imageView key="tableHeaderView" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="nYw-Ae-FSX">
+                            <rect key="frame" x="0.0" y="64" width="375" height="209"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="news" rowHeight="111" id="fad-4Y-iGK" customClass="News_cell">
-                                <rect key="frame" x="0.0" y="92" width="375" height="111"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="news" rowHeight="106" id="fad-4Y-iGK" customClass="News_cell">
+                                <rect key="frame" x="0.0" y="301" width="375" height="106"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fad-4Y-iGK" id="dFK-Jh-v6q">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="110.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="105.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="icV-Hq-Sky">
@@ -66,12 +66,12 @@
                     <navigationItem key="navigationItem" title="知乎日报" id="Fht-Xz-Mi2"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="topimage" destination="eFq-Nc-zdJ" id="lXf-Bt-VSW"/>
+                        <outlet property="topimage" destination="nYw-Ae-FSX" id="dfi-TD-XFm"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NVG-qe-rsL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="927.75" y="279.5"/>
+            <point key="canvasLocation" x="927.5" y="279.5"/>
         </scene>
         <!--News Detail-->
         <scene sceneID="p9q-9K-CgE">
@@ -145,22 +145,31 @@
                                     <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 </variation>
                             </webView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LM7-rc-Gu7">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="64" width="375" height="203"/>
+                                </variation>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="B3w-y2-3JQ"/>
+                                <exclude reference="LM7-rc-Gu7"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="B3w-y2-3JQ"/>
+                                <include reference="LM7-rc-Gu7"/>
                             </mask>
                         </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="DetailWeb" destination="B3w-y2-3JQ" id="4T1-Bw-bnO"/>
+                        <outlet property="topimage" destination="LM7-rc-Gu7" id="vZs-Uz-1ZV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gah-fa-YuX" userLabel="First Responder" sceneMemberID="firstResponder"/>

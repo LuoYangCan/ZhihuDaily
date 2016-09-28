@@ -40,11 +40,11 @@
 //                [self.newsDetail setValue:newsid   forKey:@"id"];
 //                [self.newsDetail setValue:title    forKey:@"title"];
                 [self.newsDetail addObject:Item];
-                //异步调用
-                NSOperationQueue *opreationQueue = [[NSOperationQueue alloc]init];
-                NSInvocationOperation *op = [[NSInvocationOperation alloc]initWithTarget:self selector:@selector(downloadTopImage) object:nil];
-                [opreationQueue addOperation:op];
-
+//                //异步调用
+//                NSOperationQueue *opreationQueue = [[NSOperationQueue alloc]init];
+//                NSInvocationOperation *op = [[NSInvocationOperation alloc]initWithTarget:self selector:@selector(downloadTopImage) object:nil];
+//                [opreationQueue addOperation:op];
+                [self downloadTopImage];
             }];
                 [self.tableView reloadData];
         }
