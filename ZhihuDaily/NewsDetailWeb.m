@@ -10,7 +10,8 @@
 
 @interface NewsDetailWeb ()<UIWebViewDelegate>
 @property (weak, nonatomic) IBOutlet UIWebView *DetailWeb;
-@property (weak, nonatomic) IBOutlet UIImageView *topimage;
+//@property (weak, nonatomic) IBOutlet UIImageView *topimage;
+@property (nonatomic, strong) UIImageView *topimage;        /**< 图片  */
 
 @end
 
@@ -20,9 +21,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = self.newstitle;
-    [_topimage isEqual:_DetailWeb.scrollView];
+    [self.DetailWeb.scrollView addSubview:self.topimage];
+   // [_topimage isEqual:_DetailWeb.scrollView];
     NSString *URLText = [NSString stringWithFormat:@"api/4/news/%@",self.newsid];
     NSString *encodeURl= [URLText stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    __weak typeof(self) weakSelf = self;
     [[NetworkHelper ShareHttpManager]GET:encodeURl parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (!(responseObject == nil)) {
             NSDictionary *dict = responseObject;
@@ -30,12 +33,12 @@
             NSArray *css1 = dict[@"css"];
             NSString *css = css1[0];
             NSString  *message = [NSString stringWithFormat:@"<html><head><link rel=\"stylesheet\" href=%@></head><body>%@</body></html>",css,message1];
-            [self.DetailWeb loadHTMLString:message baseURL:nil];
+            [weakSelf.DetailWeb loadHTMLString:message baseURL:nil];
             NSString *imageurlstring = responseObject[@"image"];
             NSURL *imagrurl = [NSURL URLWithString:imageurlstring];
             NSData *data = [NSData dataWithContentsOfURL:imagrurl];
-            _topimage.image = [UIImage imageWithData:data];
-            
+//            weakSelf.topimage.image = [UIImage imageWithData:data];
+            weakSelf.topimage.image = [UIImage imageWithData:data];
             //从HTML URL中uploadweb
             //            NSString *encodemessage = [message cStringUsingEncoding:NSUnicodeStringEncoding];
 //            NSData *data             = [message dataUsingEncoding:NSUnicodeStringEncoding];
@@ -84,5 +87,14 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+-(UIImageView *)topimage{
+    if (_topimage == nil) {
+        _topimage = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, ([UIScreen mainScreen].bounds.size.height - 465))];
+    }
+    return _topimage;
+}
+
+
 
 @end

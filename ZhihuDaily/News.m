@@ -9,8 +9,11 @@
 #import "News.h"
 
 @interface News ()
+@property (weak, nonatomic) IBOutlet UIScrollView *topimages;
 @property (weak, nonatomic) IBOutlet UIImageView *topimage;
+//@property (weak, nonatomic) IBOutlet UIImageView *topimage;
 @property(strong,nonatomic) NSMutableArray *newsDetail;
+@property (weak, nonatomic) IBOutlet UIPageControl *pagecontrol;
 
 @end
 
@@ -40,11 +43,11 @@
 //                [self.newsDetail setValue:newsid   forKey:@"id"];
 //                [self.newsDetail setValue:title    forKey:@"title"];
                 [self.newsDetail addObject:Item];
-//                //异步调用
-//                NSOperationQueue *opreationQueue = [[NSOperationQueue alloc]init];
-//                NSInvocationOperation *op = [[NSInvocationOperation alloc]initWithTarget:self selector:@selector(downloadTopImage) object:nil];
-//                [opreationQueue addOperation:op];
-                [self downloadTopImage];
+                //异步调用
+                NSOperationQueue *opreationQueue = [[NSOperationQueue alloc]init];
+                NSInvocationOperation *op = [[NSInvocationOperation alloc]initWithTarget:self selector:@selector(downloadTopImage) object:nil];
+                [opreationQueue addOperation:op];
+//                [self downloadTopImage];
             }];
                 [self.tableView reloadData];
         }
@@ -62,6 +65,8 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)changepages:(id)sender {
 }
 
 #pragma mark - Table view data source
@@ -168,7 +173,10 @@
     topimageurl = [topimageurl stringByReplacingOccurrencesOfString:@"\"" withString:@""];
     NSURL *url = [NSURL URLWithString:topimageurl];
     NSData *data = [NSData dataWithContentsOfURL:url];
-    self.topimage.image = [UIImage imageWithData:data];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.topimage.image = [UIImage imageWithData:data];
+    });
 
+    
 }
 @end
